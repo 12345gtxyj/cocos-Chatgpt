@@ -1,0 +1,47 @@
+{
+  "package_version": 2,
+  "version": "1.0.0",
+  "name": "chatgpt",
+  "description": "chatgpt",
+  "main": "./dist/ChatGPT.js",
+  "devDependencies": {
+    "@cocos/creator-types": "^3.8.4",
+    "@types/node": "^16.0.1",
+    "typescript": "^4.3.4"
+  },
+  "author": "Cocos Creator",
+  "editor": ">=3.4.2",
+  "scripts": {
+    "build": "tsc -b",
+    "watch": "tsc -w"
+  },
+  "panels": {
+    "default": {
+      "main": "static/index/index"
+    }
+  },
+    "contributions": {
+      "menu": [
+        {
+          "path": "Develop",
+          "label": "chatgpt",
+          "message": "open-panel"
+        }
+      ],
+      "messages": {
+        "open-panel": {
+          "methods": [
+            "openPanel"
+          ]
+        },
+        "send-to-panel": {
+          "methods": [
+            "default.hello"
+          ]
+        }
+      }
+    },
+    "dependencies": {
+      "fs-extra": "^11.2.0"
+    }
+  }
