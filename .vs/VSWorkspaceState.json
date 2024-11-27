@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\extensions",
+    "\\extensions\\chatgpt",
+    "\\extensions\\chatgpt\\source",
+    "\\extensions\\chatgpt\\source\\panels",
+    "\\extensions\\chatgpt\\source\\panels\\default",
+    "\\extensions\\chatgpt\\static",
+    "\\extensions\\chatgpt\\static\\index"
+  ],
+  "SelectedNode": "\\extensions\\chatgpt\\source\\ChatGPT.ts",
+  "PreviewInSolutionExplorer": false
+}

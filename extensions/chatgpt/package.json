@@ -21,6 +21,9 @@
     }
   },
     "contributions": {
+     "scene": {
+            "script": "./scene.js"
+        },
       "menu": [
         {
           "path": "Develop",

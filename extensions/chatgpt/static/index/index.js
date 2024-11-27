@@ -19,7 +19,6 @@ module.exports = Editor.Panel.define({
             console.log('Custom method triggered');
         },
 
-        // �� ChatGPT ��������
         async sendRequestToChatGPT({ url, apiKey, description }) {
             if (!url || !apiKey || !description) {
                 console.log("URL, API Key, and Description are required.");
@@ -45,10 +44,29 @@ module.exports = Editor.Panel.define({
                 console.log("Error occurred while sending request to ChatGPT: ", error);
             }
         },
+
+        // 加载并执行新脚本
+        async loadAndExecuteScript() {
+            try {
+                // 向 'scene' 发送请求，调用 'log' 方法
+                const result = await Editor.Message.request('scene', 'execute-scene-script', {
+                    name: 'chatgpt',  // 扩展包的名称
+                    method: 'createRandomCube',   // 要调用的方法
+                    args: []         // 方法参数，log() 不需要参数
+                });
+
+                // 打印返回的结果
+                console.log("Scene script result: ", result);
+            } catch (error) {
+                console.log("Error calling scene script: ", error);
+            }
+        },
     },
+
     ready() {
         console.log('Panel is ready');
         const sendButton = this.$.elem.querySelector('#sendButton');
+        const executeButton = this.$.elem.querySelector('#executeButton');
         const urlInput = this.$.elem.querySelector('#url');
         const apiKeyInput = this.$.elem.querySelector('#apiKey');
         const descriptionInput = this.$.elem.querySelector('#description');
@@ -69,6 +87,11 @@ module.exports = Editor.Panel.define({
 
             // Send message to panel using the correct method
             this.sendRequestToChatGPT({ url, apiKey, description });
+        });
+
+        executeButton.addEventListener('click', () => {
+            // Send message to panel using the correct method
+            this.loadAndExecuteScript();
         });
     },
     beforeClose() {
